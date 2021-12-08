@@ -56,5 +56,5 @@ jobs:
           target: ${{ env.DEPLOY_PATH }}
           strip_components: 1
           
-      - name: Print Info
-        run: echo "Deployed at http://evilengine.ru/"
+#       - name: Print Info
+#         run: echo "Deployed at http://evilengine.ru/"
