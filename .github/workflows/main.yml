@@ -46,10 +46,12 @@ jobs:
 
       - name: Архивируем папку
         run: zip -r tmp.zip ./*
-        
-      # Содержимое
+    
       - name: Содержимое
         run: ls
+        
+      - name: Отправляем
+        run: scp tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru
 
       - name: Конфиг SSH
         run: |
