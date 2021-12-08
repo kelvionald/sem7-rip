@@ -50,23 +50,23 @@ jobs:
       - name: Содержимое
         run: ls
 
-      - name: Конфиг SSH
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$DEPLOY_SERVER_HOST" > ~/.ssh/id_rsa
-          echo "$DEPLOY_SERVER_HOST" > ~/.ssh/staging.key
-          chmod 600 ~/.ssh/staging.key
-          cat >>~/.ssh/config <<END
-          Host staging
-            HostName $DEPLOY_SERVER_HOST
-            User $DEPLOY_SERVER_USERNAME
-            IdentityFile ~/.ssh/staging.key
-            StrictHostKeyChecking no
-          END
-        env:
-          DEPLOY_SERVER_USERNAME: ${{ secrets.DEPLOY_SERVER_USERNAME }}
-          DEPLOY_SERVER_KEY: ${{ secrets.DEPLOY_SERVER_KEY }}
-          DEPLOY_SERVER_HOST: ${{ secrets.DEPLOY_SERVER_HOST }}
+#       - name: Конфиг SSH
+#         run: |
+#           mkdir -p ~/.ssh/
+#           echo "$DEPLOY_SERVER_HOST" > ~/.ssh/id_rsa
+#           echo "$DEPLOY_SERVER_HOST" > ~/.ssh/staging.key
+#           chmod 600 ~/.ssh/staging.key
+#           cat >>~/.ssh/config <<END
+#           Host staging
+#             HostName $DEPLOY_SERVER_HOST
+#             User $DEPLOY_SERVER_USERNAME
+#             IdentityFile ~/.ssh/staging.key
+#             StrictHostKeyChecking no
+#           END
+#         env:
+#           DEPLOY_SERVER_USERNAME: ${{ secrets.DEPLOY_SERVER_USERNAME }}
+#           DEPLOY_SERVER_KEY: ${{ secrets.DEPLOY_SERVER_KEY }}
+#           DEPLOY_SERVER_HOST: ${{ secrets.DEPLOY_SERVER_HOST }}
      
 #       - name: Содержимое
 #         run: cat ~/.ssh/config
