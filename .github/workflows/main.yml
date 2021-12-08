@@ -16,7 +16,7 @@ on:
 env:
   DEPLOY_PATH: /home/c/cv19731/evilengine.ru
   # В теории можно собрать не только Vue-приложение, так как принцип сборки мало где отличается
-  BUILD_SCRIPT: npm run build
+  BUILD_SCRIPT: npm run prod
   BUILD_SCRIPT_OUTPUT: public_html
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -53,7 +53,7 @@ jobs:
           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
           source: . #${{ env.BUILD_SCRIPT_OUTPUT }}
-          target: ${{ env.DEPLOY_PATH }}/${{ env.BRANCH_NAME }}
+          target: ${{ env.DEPLOY_PATH }}
           strip_components: 1
       - name: Print Info
-        run: echo "Deployed at http://evilengine.ru//"
+        run: echo "Deployed at http://evilengine.ru/"
