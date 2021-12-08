@@ -44,16 +44,20 @@ jobs:
       - name: Build Appliction
         run: $BUILD_SCRIPT
 
-      # Доставляем собранное приложение на сервер
-      - name: Deploy to Server
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.DEPLOY_SERVER_HOST }}
-          port: ${{ secrets.DEPLOY_SERVER_PORT }}
-          username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
-          key: ${{ secrets.DEPLOY_SERVER_KEY }}
-          source: "*,!vendor,!node_modules"
-          target: ${{ env.DEPLOY_PATH }}
-          strip_components: 1
+      - name: Print Key
+        run: echo "${{ secrets.DEPLOY_SERVER_KEY }}"
+
+#       # Доставляем собранное приложение на сервер
+#       - name: Deploy to Server
+#         uses: appleboy/scp-action@master
+#         with:
+#           host: ${{ secrets.DEPLOY_SERVER_HOST }}
+#           port: ${{ secrets.DEPLOY_SERVER_PORT }}
+#           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
+#           key: ${{ secrets.DEPLOY_SERVER_KEY }}
+#           source: "*,!vendor,!node_modules"
+#           target: ${{ env.DEPLOY_PATH }}
+#           strip_components: 1
+          
       - name: Print Info
         run: echo "Deployed at http://evilengine.ru/"
