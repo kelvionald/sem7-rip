@@ -75,7 +75,9 @@ jobs:
         run: cat ~/.ssh/staging.key
         
       - name: Отправляем
-        run: scp ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru # -F ~/.ssh/staging.key
+        run: rsync ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru
+        
+#         run: scp ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru # -F ~/.ssh/staging.key
         
 #       # Доставляем собранное приложение на сервер
 #       - name: Deploy to Server
