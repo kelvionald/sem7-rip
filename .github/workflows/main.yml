@@ -68,7 +68,7 @@ jobs:
           DEPLOY_SERVER_HOST: ${{ secrets.DEPLOY_SERVER_HOST }}
      
       - name: Отправляем
-        run: scp ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru # -F ~/.ssh/staging.key 
+        run: scp -F ~/.ssh/staging.key ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru # -F ~/.ssh/staging.key 
         
 #       # Доставляем собранное приложение на сервер
 #       - name: Deploy to Server
