@@ -68,8 +68,8 @@ jobs:
           DEPLOY_SERVER_KEY: ${{ secrets.DEPLOY_SERVER_KEY }}
           DEPLOY_SERVER_HOST: ${{ secrets.DEPLOY_SERVER_HOST }}
      
-      - name: Содержимое
-        run: cat ~/.ssh/config
+#       - name: Содержимое
+#         run: cat ~/.ssh/config
         
       - name: Содержимое
         run: cat ~/.ssh/staging.key
