@@ -81,7 +81,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.DEPLOY_SERVER_HOST }} >> ~/.ssh/known_hosts
 
       - name: Отправляем
-        run: rsync ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru
+        run: rsync ./* ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru/asd
         
 #         run: scp ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru # -F ~/.ssh/staging.key
         
