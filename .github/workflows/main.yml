@@ -43,6 +43,9 @@ jobs:
 #       # Собираем приложение
 #       - name: Build Appliction
 #         run: $BUILD_SCRIPT
+
+      - name: Архивируем папку
+        run: zip -r tmp.zip ./*
         
       # Содержимое
       - name: Содержимое
@@ -64,9 +67,6 @@ jobs:
           SSH_USER: ${{ secrets.DEPLOY_SERVER_USERNAME }}
           SSH_KEY: ${{ secrets.DEPLOY_SERVER_KEY }}
           SSH_HOST: ${{ secrets.DEPLOY_SERVER_HOST }}
-
-      - name: Архивируем папку
-        run: ssh staging 'sudo systemctl stop my-application'
 
 #       # Доставляем собранное приложение на сервер
 #       - name: Deploy to Server
