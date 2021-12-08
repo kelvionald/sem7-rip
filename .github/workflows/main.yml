@@ -70,6 +70,11 @@ jobs:
      
 #       - name: Содержимое
 #         run: cat ~/.ssh/config
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.DEPLOY_SERVER_KEY }} 
         
       - name: Содержимое
         run: cat ~/.ssh/staging.key
