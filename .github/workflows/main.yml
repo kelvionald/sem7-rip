@@ -52,7 +52,7 @@ jobs:
           port: ${{ secrets.DEPLOY_SERVER_PORT }}
           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
-          source: "*,!vendor,!node_modules"
+          source: "./*.*,!vendor,!node_modules"
           target: ${{ env.DEPLOY_PATH }}
           strip_components: 1
           
