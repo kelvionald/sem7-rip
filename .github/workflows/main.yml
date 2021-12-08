@@ -53,6 +53,7 @@ jobs:
       - name: Конфиг SSH
         run: |
           mkdir -p ~/.ssh/
+          echo "$DEPLOY_SERVER_HOST" > ~/.ssh/id_rsa
           echo "$DEPLOY_SERVER_HOST" > ~/.ssh/staging.key
           chmod 600 ~/.ssh/staging.key
           cat >>~/.ssh/config <<END
@@ -74,7 +75,7 @@ jobs:
         run: cat ~/.ssh/staging.key
         
       - name: Отправляем
-        run: scp -F ~/.ssh/staging.key ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru # -F ~/.ssh/staging.key 
+        run: scp ./tmp.zip ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }}:/home/c/cv19731/evilengine.ru # -F ~/.ssh/staging.key
         
 #       # Доставляем собранное приложение на сервер
 #       - name: Deploy to Server
