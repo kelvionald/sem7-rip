@@ -5,10 +5,10 @@ import ProfileEdit from "../../views/pages/ProfileEdit";
 import Profile from "../../views/pages/Profile";
 import Post from "../../views/pages/Post";
 import Search from "../../views/pages/Search";
-// import AdminLogin from "../../views/pages/Admin/Login";
-// import AdminMain from "../../views/pages/Admin/Main";
-// import AdminSearch from "../../views/pages/Admin/Search";
-// import AdminUsers from "../../views/pages/Admin/Users";
+import AdminLogin from "../../views/pages/Admin/Login";
+import AdminMain from "../../views/pages/Admin/Main";
+import AdminSearch from "../../views/pages/Admin/Search";
+import AdminUsers from "../../views/pages/Admin/Users";
 
 export default new VueRouter({
     mode: 'history',
@@ -49,25 +49,25 @@ export default new VueRouter({
             name: 'post',
             component: Post,
         },
-        // {
-        //     path: '/admin',
-        //     name: 'admin.main',
-        //     component: AdminMain,
-        // },
-        // {
-        //     path: '/admin/search',
-        //     name: 'admin.search',
-        //     component: AdminSearch,
-        // },
-        // {
-        //     path: '/admin/users',
-        //     name: 'admin.users',
-        //     component: AdminUsers,
-        // },
-        // {
-        //     path: '/admin/login',
-        //     name: 'admin.login',
-        //     component: AdminLogin,
-        // },
+        {
+            path: '/admin',
+            name: 'admin.main',
+            component: AdminMain,
+        },
+        {
+            path: '/admin/search',
+            name: 'admin.search',
+            component: AdminSearch,
+        },
+        {
+            path: '/admin/users',
+            name: 'admin.users',
+            component: AdminUsers,
+        },
+        {
+            path: '/admin/login',
+            name: 'admin.login',
+            component: AdminLogin,
+        },
     ],
 });

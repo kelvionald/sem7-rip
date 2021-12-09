@@ -26,12 +26,12 @@ class StatisticsController extends Controller
             ->whereBetween('created_at', [$dayBeforeMonth, $currDay])
             ->count();
         $usersByDateByMonth = User::query()
-            ->selectRaw('date(created_at), count(user_id)')
+            ->selectRaw('date(created_at) as `date`, count(user_id) as `count`')
             ->whereBetween('created_at', [$dayBeforeMonth, $currDay])
             ->groupByRaw('date(created_at)')
             ->get();
         $postsByDateByMonth = Post::query()
-            ->selectRaw('date(created_at), count(post_id)')
+            ->selectRaw('date(created_at) as `date`, count(post_id) as `count`')
             ->whereBetween('created_at', [$dayBeforeMonth, $currDay])
             ->groupByRaw('date(created_at)')
             ->get();

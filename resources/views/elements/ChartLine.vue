@@ -6,7 +6,7 @@
         name: "ChartLine",
         props: ['data', 'label'],
         mounted() {
-            this.renderChart({
+            var data = {
                 labels: this.data.map(function (el) {
                     return el.date
                 }),
@@ -19,7 +19,9 @@
                         })
                     }
                 ]
-            }, {})
+            }
+            console.log(data)
+            this.renderChart(data, {})
         }
     }
 </script>

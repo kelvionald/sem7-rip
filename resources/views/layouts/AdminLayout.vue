@@ -1,10 +1,10 @@
 <template>
     <div class="my-container layout">
         <h1>Posterz</h1>
-        <div style="width: 100%;background:white;display:flex;     padding: 4px 19px;">
+        <div v-if="$user.role_id == 2" style="width: 100%;background:white;display:flex;     padding: 4px 19px;">
             {{ $user.nickname }} (@{{ $user.login }})
         </div>
-        <div style="width: 100%;background:white;display:flex">
+        <div v-if="$user.role_id == 2" style="width: 100%;background:white;display:flex">
             <div class="menu">
                 <ul class="is-unstyled">
                     <li>
@@ -22,6 +22,9 @@
                 </ul>
             </div>
             <slot></slot>
+        </div>
+        <div v-else style="width: 100%;background:white;display:flex; color: red">
+            Вы не обладаете правами администратора
         </div>
         <notifications group="common"/>
     </div>
