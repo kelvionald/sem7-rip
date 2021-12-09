@@ -128,6 +128,7 @@ class PostsController extends Controller
             ->selectRaw('post.*')
             ->rightJoin('follower', 'readable_id', '=', 'post.user_id')
             ->where('follower.reader_id', $user_id)
+            ->orderBy('post_id', 'DESC')
             ->get();
         $posts = $posts->map(function ($row) {
             $postModel = new Post;
