@@ -1,5 +1,5 @@
 # Posterz
-
+test deploy
 ## Установка
 0. Устанавливаем https://ospanel.io/
 1. Настраиваем версии mariadb (mysql), php, apache в соответсткии со скрином
